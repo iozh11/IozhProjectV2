@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".server.ui.post.CreatePostFragment">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/background"
+            android:layout_marginBottom="16dp"
+        />
+
+        <TextView
+            android:id="@+id/aboutPost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Создать запись"
+            android:textColor="@color/gold"
+            android:textAlignment="center"
+            android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/titlePost"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/titlePost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="Заголовок"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            app:layout_constraintBottom_toTopOf="@+id/describlePost"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/aboutPost" />
+
+    <EditText
+        android:id="@+id/describlePost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:ems="10"
+        android:hint="Напишите запись..."
+        android:inputType="textMultiLine"
+        android:maxLines="5"
+        android:padding="20dp"
+        android:scrollbars="vertical"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/pushPost"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titlePost"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <Button
+            android:id="@+id/pushPost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Опубликовать"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/describlePost"
+            android:backgroundTint="@color/gold" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

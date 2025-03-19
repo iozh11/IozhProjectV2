@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group
+        android:id="@+id/autentificat"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_register"
+            android:icon="@drawable/register"
+            android:title="@string/menu_register" />
+        <item
+            android:id="@+id/nav_login"
+            android:icon="@drawable/login"
+            android:title="@string/menu_login" />
+
+    </group>
+    <group
+        android:id="@+id/main_label">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home"
+            android:title="@string/menu_main_page" />
+
+
+    </group>
+    <group
+        android:id="@+id/post_label">
+        <item
+            android:id="@+id/nav_create_post"
+            android:icon="@drawable/home"
+            android:title="Создать запись" />
+        <item
+            android:id="@+id/nav_list_post"
+            android:icon="@drawable/hedgehog"
+            android:title="Посты"/>
+
+
+    </group>
+    <group
+        android:id="@+id/hedgehogs"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_common"
+            android:icon="@drawable/hedgehog"
+            android:title="@string/menu_common_hedgehog" />
+        <item
+            android:id="@+id/nav_african"
+            android:icon="@drawable/hedgehog"
+            android:title="@string/menu_african_hedgehog" />
+        <item
+            android:id="@+id/nav_hears_hedgehog"
+            android:icon="@drawable/hedgehog"
+            android:title="@string/menu_hears_hedgehog" />
+    </group>
+    <group
+        android:id="@+id/about"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/about"
+            android:title="@string/menu_about"/>
+
+    </group>
+</menu>

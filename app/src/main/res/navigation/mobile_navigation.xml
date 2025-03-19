@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.iozhproject.server.ui.home.HomeFragment"
+        android:label="Главная"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_common"
+        android:name="com.example.iozhproject.server.ui.common.CommonFragment"
+        android:label="@string/menu_common_hedgehog"
+        tools:layout="@layout/fragment_common_hedgehog" />
+
+    <fragment
+        android:id="@+id/nav_african"
+        android:name="com.example.iozhproject.server.ui.african.AfricanFragment"
+        android:label="@string/menu_african_hedgehog"
+        tools:layout="@layout/fragment_african_hedgehog" />
+
+    <fragment
+        android:id="@+id/nav_hears_hedgehog"
+        android:name="com.example.iozhproject.server.ui.longeared.LongearedFragment"
+        android:label="@string/menu_hears_hedgehog"
+        tools:layout="@layout/fragment_longeared" />
+
+    <fragment
+        android:id="@+id/nav_create_post"
+        android:name="com.example.iozhproject.server.ui.post.CreatePostFragment"
+        android:label="Создать запись"
+        tools:layout="@layout/fragment_create_post" />
+
+    <fragment
+        android:id="@+id/nav_list_post"
+        android:name="com.example.iozhproject.server.ui.post.PostListFragment"
+        android:label="Посты"
+        tools:layout="@layout/fragment_post_list" />
+
+<!--    <fragment-->
+<!--        android:id="@+id/nav_login"-->
+<!--        android:name="com.example.iozhproject.ui.frontend.login.LoginFragment"-->
+<!--        android:label="@string/menu_login"-->
+<!--        tools:layout="@layout/fragment_login" />-->
+
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="com.example.iozhproject.server.ui.about.AboutFragment"
+        android:label="@string/menu_about"
+        tools:layout="@layout/fragment_about" />
+
+    <fragment
+        android:id="@+id/nav_register"
+        android:name="com.example.iozhproject.server.ui.register.RegisterFragment"
+        android:label="@string/menu_register"
+        tools:layout="@layout/fragment_register" />
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.example.iozhproject.server.ui.list.UserListFragment"
+        android:label="Список профилей"
+        tools:layout="@layout/fragment_list">
+
+        <action
+            android:id="@+id/action_listFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.iozhproject.server.ui.profile.ProfileFragment"
+        android:label="Профиль"
+        tools:layout="@layout/fragment_profile">
+        <argument
+            android:name="userId"
+            app:nullable="false"
+            app:argType="string"/>
+    </fragment>
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="com.example.iozhproject.server.ui.sign.SignFragment"
+        android:label="Вход"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_signFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+</navigation>
