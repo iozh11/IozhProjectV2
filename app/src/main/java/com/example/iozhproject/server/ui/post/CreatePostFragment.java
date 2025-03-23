@@ -13,11 +13,26 @@ import androidx.fragment.app.Fragment;
 
 import com.example.iozhproject.databinding.FragmentCreatePostBinding;
 
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
 public class CreatePostFragment extends Fragment {
 
     private FragmentCreatePostBinding binding;
     private EditText titleP;
     private EditText describleP;
+
+    private static final String API_URL = "http://192.168.1.12:8080/edu/v1/post/new"; // Указан правильный URL для создания поста
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -26,10 +41,8 @@ public class CreatePostFragment extends Fragment {
         titleP = binding.titlePost;
         describleP = binding.describlePost;
 
-
         setupEditText();
         binding.pushPost.setOnClickListener(v -> sendDataPost());
-
 
         return root;
     }
@@ -38,14 +51,47 @@ public class CreatePostFragment extends Fragment {
         String title = titleP.getText().toString().trim();
         String description = describleP.getText().toString().trim();
 
-//        PostListFragment postListFragment = new PostListFragment();
-//        postListFragment.loadSamplePosts(title, description);
+        // Создаем JSON-объект для отправки на сервер
+        JSONObject postData = new JSONObject();
+        try {
+            postData.put("title", title);
+            postData.put("description", description);
+            postData.put("photoURL", "ваше_значение"); // Укажите любое значение для photoURL, если это необходимо
+        } catch (JSONException e) {
+            e.printStackTrace();
+            Toast.makeText(requireContext(), "Ошибка формирования данных", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-        Toast.makeText(requireContext(), "Успешно", Toast.LENGTH_SHORT).show();
-        titleP.setText("");
-        describleP.setText("");
+        // Отправляем данные на сервер
+        OkHttpClient client = new OkHttpClient();
+        RequestBody body = RequestBody.create(postData.toString(), MediaType.parse("application/json; charset=utf-8"));
+        Request request = new Request.Builder()
+                .url(API_URL)
+                .post(body) // Используем метод POST на указанный URL
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+                requireActivity().runOnUiThread(() -> Toast.makeText(getContext(), "Ошибка отправки данных", Toast.LENGTH_SHORT).show());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    requireActivity().runOnUiThread(() -> {
+                        Toast.makeText(getContext(), "Пост успешно добавлен", Toast.LENGTH_SHORT).show();
+                        titleP.setText(""); // Очищаем поля после успешного добавления
+                        describleP.setText("");
+                    });
+                } else {
+                    requireActivity().runOnUiThread(() -> Toast.makeText(getContext(), "Ошибка ответа сервера", Toast.LENGTH_SHORT).show());
+                }
+            }
+        });
     }
-
 
     private void setupEditText() {
         describleP.setVerticalScrollBarEnabled(true);

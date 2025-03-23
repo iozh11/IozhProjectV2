@@ -6,13 +6,10 @@
     <group
         android:id="@+id/autentificat"
         android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_register"
-            android:icon="@drawable/register"
-            android:title="@string/menu_register" />
+
         <item
             android:id="@+id/nav_login"
-            android:icon="@drawable/login"
+            android:icon="@drawable/hedgehog"
             android:title="@string/menu_login" />
 
     </group>

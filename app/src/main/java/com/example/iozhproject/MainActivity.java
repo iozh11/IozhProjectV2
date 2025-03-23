@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_register,
                 R.id.nav_login,
                 R.id.nav_home,
                 R.id.nav_common,

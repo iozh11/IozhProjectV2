@@ -1,5 +1,7 @@
 package com.example.iozhproject.server.ui.sign;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
@@ -29,6 +31,7 @@ public class SignFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         binding = FragmentLoginBinding.bind(view);
         viewModel = new ViewModelProvider(this).get(SignViewModel.class);
+        SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("app_prefs", Context.MODE_PRIVATE);
         binding.login.addTextChangedListener(new OnChangeText() {
             @Override
             public void afterTextChanged(Editable s) {
@@ -59,7 +62,20 @@ public class SignFragment extends Fragment {
         viewModel.openListLiveData.observe(getViewLifecycleOwner(), (unused) -> {
             final View view = getView();
             if (view == null) return;
-            Navigation.findNavController(view).navigate(R.id.action_signFragment_to_listFragment);
+
+            // Сохранение состояния авторизации
+            SharedPreferences sharedPreferences = getContext().getSharedPreferences("app_prefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean("is_logged_in", true);
+            editor.apply();
+
+            // Переход на ProfileFragment
+            Navigation.findNavController(view).navigate(R.id.action_signFragment_to_homeFragment);
+        });
+        viewModel.openListLiveData.observe(getViewLifecycleOwner(), (unused) -> {
+            final View view = getView();
+            if (view == null) return;
+            Navigation.findNavController(view).navigate(R.id.action_signFragment_to_homeFragment);
         });
     }
 
