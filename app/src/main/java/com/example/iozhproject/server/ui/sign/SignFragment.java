@@ -62,19 +62,6 @@ public class SignFragment extends Fragment {
         viewModel.openListLiveData.observe(getViewLifecycleOwner(), (unused) -> {
             final View view = getView();
             if (view == null) return;
-
-            // Сохранение состояния авторизации
-            SharedPreferences sharedPreferences = getContext().getSharedPreferences("app_prefs", Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putBoolean("is_logged_in", true);
-            editor.apply();
-
-            // Переход на ProfileFragment
-            Navigation.findNavController(view).navigate(R.id.action_signFragment_to_homeFragment);
-        });
-        viewModel.openListLiveData.observe(getViewLifecycleOwner(), (unused) -> {
-            final View view = getView();
-            if (view == null) return;
             Navigation.findNavController(view).navigate(R.id.action_signFragment_to_homeFragment);
         });
     }
