@@ -14,17 +14,75 @@
         app:srcCompat="@drawable/background" />
 
 
-    <TextView
-        android:id="@+id/text_longeared"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="66dp"
+        android:paddingBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/text_longeared_hedgehog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/button_lifestyle_longeared"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/gold"
+                android:text="@string/lifestyle" />
+
+            <TextView
+                android:id="@+id/text_lifestyle_longeared"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lifestyle_text_longeared"
+                android:textSize="24sp"
+                android:visibility="gone"
+                android:padding="10dp" />
+
+            <Button
+                android:id="@+id/button_living_longeared"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/gold"
+                android:text="@string/life_in_the_house" />
+
+            <TextView
+                android:id="@+id/text_living_longeared"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/living_text_longeared"
+                android:textSize="24sp"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/button_facts_longeared"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/gold"
+                android:text="@string/interesting_facts" />
+
+            <TextView
+                android:id="@+id/text_facts_longeared"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/facts_text_longeared"
+                android:textSize="24sp"
+                android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
