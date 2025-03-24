@@ -9,7 +9,7 @@
 
         <item
             android:id="@+id/profileFragment"
-            android:icon="@drawable/hedgehog"
+            android:icon="@drawable/user"
             android:title="@string/menu_profile" />
 
     </group>
@@ -26,11 +26,11 @@
         android:id="@+id/post_label">
         <item
             android:id="@+id/nav_create_post"
-            android:icon="@drawable/home"
+            android:icon="@drawable/post"
             android:title="Создать запись" />
         <item
             android:id="@+id/nav_list_post"
-            android:icon="@drawable/hedgehog"
+            android:icon="@drawable/list"
             android:title="Посты"/>
 
 
