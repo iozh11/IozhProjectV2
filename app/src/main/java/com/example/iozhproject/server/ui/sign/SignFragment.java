@@ -31,6 +31,7 @@ public class SignFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         binding = FragmentLoginBinding.bind(view);
         viewModel = new ViewModelProvider(this).get(SignViewModel.class);
+
         SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("app_prefs", Context.MODE_PRIVATE);
         binding.login.addTextChangedListener(new OnChangeText() {
             @Override

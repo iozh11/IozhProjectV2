@@ -8,9 +8,9 @@
         android:checkableBehavior="single">
 
         <item
-            android:id="@+id/nav_login"
+            android:id="@+id/profileFragment"
             android:icon="@drawable/hedgehog"
-            android:title="@string/menu_login" />
+            android:title="@string/menu_profile" />
 
     </group>
     <group

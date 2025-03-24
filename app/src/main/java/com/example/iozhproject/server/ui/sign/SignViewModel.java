@@ -37,8 +37,6 @@ public class SignViewModel extends ViewModel {
     private final LoginUserUseCase loginUserUseCase = new LoginUserUseCase(
             UserRepositoryImpl.getInstance()
     );
-    /* UseCases */
-
     @Nullable
     private String login = null;
     @Nullable

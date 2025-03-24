@@ -2,9 +2,12 @@ package com.example.iozhproject;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
@@ -25,21 +28,47 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarMain.toolbar);
+
+
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_login,
                 R.id.nav_home,
                 R.id.nav_common,
                 R.id.nav_african,
                 R.id.nav_hears_hedgehog,
-                R.id.nav_about)
+                R.id.nav_about,
+                R.id.nav_create_post,
+                R.id.nav_list_post)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+
+
+        // Обработка кнопки "Назад"
+        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
+            @Override
+            public void onDestinationChanged(@NonNull NavController controller,
+                                             @NonNull NavDestination destination,
+                                             @Nullable Bundle arguments) {
+                // Убираем кнопку "Назад", если текущая навигация не в mAppBarConfiguration
+                if (mAppBarConfiguration.getTopLevelDestinations().contains(destination.getId())) {
+                    // Это верхний уровень, убираем "Назад"
+                    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                    getSupportActionBar().setDisplayShowHomeEnabled(true);
+                } else {
+                    // Это подуровень, показываем "Назад"
+                    getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+                    getSupportActionBar().setDisplayShowHomeEnabled(false);
+                }
+            }
+        });
     }
+
+
 
     @Override
     public boolean onSupportNavigateUp() {
