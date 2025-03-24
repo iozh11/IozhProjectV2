@@ -4,11 +4,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
+import com.example.iozhproject.R;
 import com.example.iozhproject.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
@@ -23,8 +27,20 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-//        final TextView textView = binding.te;
-//        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main);
+        binding.aboutProjectButton.setOnClickListener(view -> {
+            navController.navigate(R.id.action_homeFragment_to_aboutFragment);
+        });
+        binding.createPostButton.setOnClickListener(view ->{
+            navController.navigate(R.id.action_homeFragment_to_createPostFragment);
+        });
+        binding.newsButton.setOnClickListener(view ->{
+            navController.navigate(R.id.action_homeFragment_to_listPostFragment);
+        });
+        binding.homePageButton.setOnClickListener(view -> {
+            Toast.makeText(getContext(), "Вы на главной странице", Toast.LENGTH_SHORT).show();
+        });
+
         return root;
     }
 

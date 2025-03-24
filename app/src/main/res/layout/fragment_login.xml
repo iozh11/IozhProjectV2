@@ -1,62 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:animateLayoutChanges="true">
 
-    <androidx.constraintlayout.helper.widget.Flow
-        android:id="@+id/flow"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:constraint_referenced_ids="title, login, password, confirm"
-        app:flow_horizontalAlign="center"
-        app:flow_verticalAlign="center"
-        app:flow_verticalGap="24dp"
-        app:flow_verticalStyle="packed"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></androidx.constraintlayout.helper.widget.Flow>
 
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:scaleType="fitXY"
-        app:srcCompat="@drawable/background" />
+        android:layout_height="400dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/login_background" />
 
-    <TextView
-        android:id="@+id/title"
-        android:gravity="center"
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        tools:text="Привет!"
-        android:textColor="@color/black"/>
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/login_back_text"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="20dp"
+            app:srcCompat="@drawable/while_iozh_logo" />
+
+        <TextView
+            android:id="@+id/title"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="60dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            tools:text="Привет!"
+            style="@style/customtext"
+            android:textColor="@color/white"/>
+
+    </LinearLayout>
+
 
     <EditText
         android:id="@+id/login"
-        android:layout_width="200dp"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:hint="@string/login_hint"
-        android:inputType="textEmailAddress"/>
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="200dp"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:hint="@string/password_hint"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
         android:id="@+id/confirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/gold"
-        tools:text="Далее" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:cornerRadius="50dp"
+        tools:text="Далее"
+        style="@style/customtext"
+        android:textColor="@color/white"
+        android:textSize="24dp"
+        android:padding="15dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

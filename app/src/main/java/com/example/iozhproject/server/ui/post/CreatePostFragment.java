@@ -32,7 +32,7 @@ public class CreatePostFragment extends Fragment {
     private EditText titleP;
     private EditText describleP;
 
-    private static final String API_URL = "http://192.168.1.12:8080/edu/v1/post/new"; // Указан правильный URL для создания поста
+    private static final String API_URL = "http://192.168.1.12:8080/edu/v1/post/new";
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -51,24 +51,22 @@ public class CreatePostFragment extends Fragment {
         String title = titleP.getText().toString().trim();
         String description = describleP.getText().toString().trim();
 
-        // Создаем JSON-объект для отправки на сервер
         JSONObject postData = new JSONObject();
         try {
             postData.put("title", title);
             postData.put("description", description);
-            postData.put("photoURL", "ваше_значение"); // Укажите любое значение для photoURL, если это необходимо
+            postData.put("photoURL", "ваше_значение");
         } catch (JSONException e) {
             e.printStackTrace();
             Toast.makeText(requireContext(), "Ошибка формирования данных", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Отправляем данные на сервер
         OkHttpClient client = new OkHttpClient();
         RequestBody body = RequestBody.create(postData.toString(), MediaType.parse("application/json; charset=utf-8"));
         Request request = new Request.Builder()
                 .url(API_URL)
-                .post(body) // Используем метод POST на указанный URL
+                .post(body)
                 .build();
 
         client.newCall(request).enqueue(new Callback() {
@@ -83,7 +81,7 @@ public class CreatePostFragment extends Fragment {
                 if (response.isSuccessful()) {
                     requireActivity().runOnUiThread(() -> {
                         Toast.makeText(getContext(), "Пост успешно добавлен", Toast.LENGTH_SHORT).show();
-                        titleP.setText(""); // Очищаем поля после успешного добавления
+                        titleP.setText("");
                         describleP.setText("");
                     });
                 } else {

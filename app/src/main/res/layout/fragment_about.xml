@@ -6,12 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".server.ui.about.AboutFragment">
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        app:srcCompat="@drawable/background" />
 
 
     <TextView
@@ -22,7 +16,9 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="40dp"
+        style="@style/customtext"
+        android:textColor="@color/gold"
         android:padding="16dp"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"

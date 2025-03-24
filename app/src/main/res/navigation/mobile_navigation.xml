@@ -9,7 +9,17 @@
         android:id="@+id/nav_home"
         android:name="com.example.iozhproject.server.ui.home.HomeFragment"
         android:label="Главная"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_listPostFragment"
+            app:destination="@id/nav_list_post" />
+        <action
+            android:id="@+id/action_homeFragment_to_createPostFragment"
+            app:destination="@id/nav_create_post" />
+        <action
+            android:id="@+id/action_homeFragment_to_aboutFragment"
+            app:destination="@id/nav_about" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_common"
@@ -33,13 +43,21 @@
         android:id="@+id/nav_create_post"
         android:name="com.example.iozhproject.server.ui.post.CreatePostFragment"
         android:label="Создать запись"
-        tools:layout="@layout/fragment_create_post" />
+        tools:layout="@layout/fragment_create_post">
+        <action
+            android:id="@+id/action_createPostFragment_to_homeFragment"
+            app:destination="@id/nav_home" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_list_post"
         android:name="com.example.iozhproject.server.ui.post.PostListFragment"
         android:label="Записи"
-        tools:layout="@layout/fragment_post_list" />
+        tools:layout="@layout/fragment_post_list">
+        <action
+            android:id="@+id/action_listPostFragment_to_homeFragment"
+            app:destination="@id/nav_home" />
+    </fragment>
 
 <!--    <fragment-->
 <!--        android:id="@+id/nav_login"-->
@@ -51,7 +69,11 @@
         android:id="@+id/nav_about"
         android:name="com.example.iozhproject.server.ui.about.AboutFragment"
         android:label="@string/menu_about"
-        tools:layout="@layout/fragment_about" />
+        tools:layout="@layout/fragment_about">
+        <action
+            android:id="@+id/action_aboutFragment_to_homeFragment"
+            app:destination="@id/nav_home" />
+    </fragment>
 
 
     <fragment

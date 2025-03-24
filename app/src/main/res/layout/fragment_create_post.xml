@@ -5,29 +5,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".server.ui.post.CreatePostFragment">
+    tools:context=".server.ui.post.CreatePostFragment"
+    android:background="@color/gold">
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/background"
-            android:layout_marginBottom="16dp"
-        />
-
-        <TextView
-            android:id="@+id/aboutPost"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Создать запись"
-            android:textColor="@color/gold"
-            android:textAlignment="center"
-            android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/titlePost"
+    <TextView
+        android:id="@+id/aboutPost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Создать запись"
+        style="@style/customtext"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/cardViewTitlePost"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewTitlePost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:padding="10dp"
+        app:cardCornerRadius="50dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardViewDescriblePost"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aboutPost">
 
         <EditText
             android:id="@+id/titlePost"
@@ -36,42 +43,60 @@
             android:textAlignment="center"
             android:ems="10"
             android:inputType="text"
+            android:textSize="24sp"
             android:hint="Заголовок"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"
-            app:layout_constraintBottom_toTopOf="@+id/describlePost"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/aboutPost" />
+            style="@style/customtext"
+            android:textColor="@color/gold"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp" />
+    </androidx.cardview.widget.CardView>
 
-    <EditText
-        android:id="@+id/describlePost"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewDescriblePost"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
-        android:ems="10"
-        android:hint="Напишите запись..."
+        android:layout_margin="15dp"
+        android:padding="10dp"
+        app:cardCornerRadius="50dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/pushPost"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardViewTitlePost">
+
+        <EditText
+            android:id="@+id/describlePost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:ems="10"
+            android:hint="Запись..."
+            android:textSize="24sp"
+            style="@style/customtext"
+            android:textColor="@color/gold"
         android:inputType="textMultiLine"
         android:maxLines="5"
         android:padding="20dp"
         android:scrollbars="vertical"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/pushPost"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titlePost"
         tools:layout_editor_absoluteX="0dp" />
+    </androidx.cardview.widget.CardView>
 
     <Button
-            android:id="@+id/pushPost"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Опубликовать"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/describlePost"
-            android:backgroundTint="@color/gold" />
+        android:id="@+id/pushPost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Опубликовать"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/customtext"
+        app:cornerRadius="50dp"
+        android:textSize="24sp"
+        android:textColor="@color/gold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardViewDescriblePost"
+        android:backgroundTint="@color/white" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
