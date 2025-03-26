@@ -33,7 +33,7 @@ public class ProfileFragment extends Fragment {
         viewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
         viewModel.stateLiveData.observe(getViewLifecycleOwner(), state -> {
             final FullUserEntity entity = state.getUser();
-            if (entity == null) return; // TODO: handle error and loading
+            if (entity == null) return;
             binding.image.setVisibility(Utils.visibleOrGone(entity.getPhotoUrl() != null));
             binding.email.setVisibility(Utils.visibleOrGone(entity.getEmail() != null));
             binding.phone.setVisibility(Utils.visibleOrGone(entity.getPhone() != null));
@@ -48,7 +48,7 @@ public class ProfileFragment extends Fragment {
         });
 
         String id = getArguments() != null ? getArguments().getString(KEY_ID) : null;
-        if (id == null) throw new IllegalStateException("ID is null");
+        if (id == null) throw new IllegalStateException("ID пустой");
         viewModel.load(id);
 
     }

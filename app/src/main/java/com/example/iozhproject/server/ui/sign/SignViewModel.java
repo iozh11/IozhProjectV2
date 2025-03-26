@@ -27,7 +27,6 @@ public class SignViewModel extends ViewModel {
     private final MutableLiveData<Void> mutableOpenListLiveData = new MutableLiveData<>();
     public final LiveData<Void> openListLiveData = mutableOpenListLiveData;
 
-    /* UseCases */
     private final IsUserExistUseCase isUserExistUseCase = new IsUserExistUseCase(
             UserRepositoryImpl.getInstance()
     );
@@ -70,11 +69,11 @@ public class SignViewModel extends ViewModel {
         final String currentLogin = login;
         final String currentPassword = password;
         if (currentPassword == null || currentPassword.isEmpty()) {
-            mutableErrorLiveData.postValue("Password cannot be null");
+            mutableErrorLiveData.postValue("Пароль не может быть пустым");
             return;
         }
         if (currentLogin == null || currentLogin.isEmpty()) {
-            mutableErrorLiveData.postValue("Login cannot be null");
+            mutableErrorLiveData.postValue("Логин не может быть пустым");
             return;
         }
         if (isNewAccount) {
@@ -82,7 +81,7 @@ public class SignViewModel extends ViewModel {
                 if (status.getStatusCode() == 201 && status.getErrors() == null) {
                     loginUser(currentLogin, currentPassword);
                 } else {
-                    mutableErrorLiveData.postValue("Something wrong");
+                    mutableErrorLiveData.postValue("Что-то не так...");
                 }
             });
         } else {
@@ -95,7 +94,7 @@ public class SignViewModel extends ViewModel {
             if (status.getStatusCode() == 200 && status.getErrors() == null) {
                 mutableOpenListLiveData.postValue(null);
             } else {
-                mutableErrorLiveData.postValue("Something wrong");
+                mutableErrorLiveData.postValue("Что-то не так...");
             }
         });
     }

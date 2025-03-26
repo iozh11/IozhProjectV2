@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="24dp"
+        android:background="@color/gold">
+
+        <LinearLayout
+            android:padding="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="15dp"
+            android:background="@drawable/rounded_background"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title_african_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Африканский ёж"
+                android:textSize="32sp"
+                android:textColor="@color/gold"
+                style="@style/customtext"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/details_african_text"
+                android:text="@string/pr_iozh_african"
+                style="@style/customtext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_marginBottom="16dp"
+                android:textColor="@color/gold"
+                android:textSize="20sp" />
+
+            <ImageButton
+                android:id="@+id/more_african_about"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/about_button"
+                android:background="@null"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:padding="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="15dp"
+            android:background="@drawable/rounded_background"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title_common_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Европейский ёж"
+                android:textSize="32sp"
+                android:textColor="@color/gold"
+                style="@style/customtext"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/details_common_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/customtext"
+                android:text="Европейский ёж – это небольшое млекопитающее, покрытое колючками на спине и боках. Он ведёт ночной образ жизни, питается насекомыми, слизнями и другими беспозвоночными, а также может есть ягоды и фрукты..."
+                android:textSize="20dp"
+                android:layout_margin="20dp"
+                android:textColor="@color/gold"
+                android:layout_marginBottom="16dp" />
+
+            <ImageButton
+                android:id="@+id/more_common_about"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/about_button"
+                android:background="@null"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:padding="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="15dp"
+            android:background="@drawable/rounded_background"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title_ears_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ушастый ёж"
+                android:textSize="32dp"
+                android:textColor="@color/gold"
+                style="@style/customtext"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/details_ears_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/customtext"
+                android:text="Ушастые ежи отличаются длинными ушами, адаптированными к жаркому климату. Это небольшие ежи со светлыми иглами, покрывающими спину. Обитают в степях, полупустынях и пустынях Юго-Восточной Европы, Азии и Северной Африки..."
+                android:textSize="20dp"
+                android:layout_margin="20dp"
+                android:textColor="@color/gold"
+                android:layout_marginBottom="16dp" />
+
+            <ImageButton
+                android:id="@+id/more_ears_about"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/about_button"
+                android:background="@null"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

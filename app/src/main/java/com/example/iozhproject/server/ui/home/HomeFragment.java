@@ -37,10 +37,9 @@ public class HomeFragment extends Fragment {
         binding.newsButton.setOnClickListener(view ->{
             navController.navigate(R.id.action_homeFragment_to_listPostFragment);
         });
-        binding.homePageButton.setOnClickListener(view -> {
-            Toast.makeText(getContext(), "Вы на главной странице", Toast.LENGTH_SHORT).show();
+        binding.hedgehogsListButton.setOnClickListener(view ->{
+            navController.navigate(R.id.action_homeFragment_to_hedgehogsFragment);
         });
-
         return root;
     }
 

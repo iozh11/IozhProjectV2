@@ -46,7 +46,6 @@
                 android:textColor="@color/gold"
                 style="@style/customtext"
                 android:padding="20dp"
-                android:maxLines="7"
                 android:ellipsize="end"
                 android:textAlignment="viewStart"/>
 

@@ -19,7 +19,30 @@
         <action
             android:id="@+id/action_homeFragment_to_aboutFragment"
             app:destination="@id/nav_about" />
+        <action
+            android:id="@+id/action_homeFragment_to_hedgehogsFragment"
+            app:destination="@id/nav_hedgehogs" />
+        <action
+            android:id="@+id/action_homeFragment_to_homeFragment"
+            app:destination="@id/nav_home" />
     </fragment>
+
+    <fragment
+        android:id="@+id/nav_hedgehogs"
+        android:name="com.example.iozhproject.server.ui.hedgehogs.ListHedgehogFragment"
+        android:label="Ежи"
+        tools:layout="@layout/fragment_list_hedgehog">
+        <action
+            android:id="@+id/action_hedgehogsFragment_to_africanFragment"
+            app:destination="@id/nav_african" />
+        <action
+            android:id="@+id/action_hedgehogsFragment_to_commonFragment"
+            app:destination="@id/nav_common" />
+        <action
+            android:id="@+id/action_hedgehogsFragment_to_earsFragment"
+            app:destination="@id/nav_hears_hedgehog" />
+    </fragment>
+
 
     <fragment
         android:id="@+id/nav_common"

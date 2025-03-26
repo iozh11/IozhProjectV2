@@ -20,19 +20,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Инициализация Binding
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Получаем доступ к DrawerLayout и NavController
         DrawerLayout drawer = binding.drawerLayout;
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
 
-        // Настройка NavigationView
         NavigationView navigationView = binding.navView;
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        // Переход на экран логина (или кнопку навигации, если это актуально)
-        navController.navigate(R.id.nav_login); // Убедитесь, что это ID вашего фрагмента логина
+        navController.navigate(R.id.nav_login);
     }
 }

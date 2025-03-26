@@ -32,7 +32,7 @@ public class CreatePostFragment extends Fragment {
     private EditText titleP;
     private EditText describleP;
 
-    private static final String API_URL = "http://192.168.1.12:8080/edu/v1/post/new";
+    private static final String API_URL = "http://192.168.245.114:8080/edu/v1/post/new";
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -94,6 +94,22 @@ public class CreatePostFragment extends Fragment {
     private void setupEditText() {
         describleP.setVerticalScrollBarEnabled(true);
         describleP.setHorizontallyScrolling(false);
+
+
+        titleP.setOnFocusChangeListener((v, hasFocus) -> {
+            if (hasFocus) {
+                titleP.setHeight(200);
+            } else {
+                titleP.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+            }
+        });
+
+        titleP.setOnTouchListener((v, event) -> {
+            if (event.getAction() == MotionEvent.ACTION_UP) {
+                titleP.scrollTo(0, titleP.getHeight());
+            }
+            return false;
+        });
 
         describleP.setOnFocusChangeListener((v, hasFocus) -> {
             if (hasFocus) {

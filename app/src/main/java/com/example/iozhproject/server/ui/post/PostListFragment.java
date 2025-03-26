@@ -32,7 +32,7 @@ public class PostListFragment extends Fragment {
     private FragmentPostListBinding binding;
     private List<Post> posts;
 
-    private static final String API_URL = "http://192.168.1.12:8080/edu/v1/post";
+    private static final String API_URL = "http://192.168.245.114:8080/edu/v1/post";
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -98,7 +98,6 @@ public class PostListFragment extends Fragment {
         private final String title;
         private final String description;
 
-        // Добавьте другие поля, если нужно
         private final String imageUrl;
 
         public Post(String title, String description, String imageUrl) {
@@ -116,7 +115,7 @@ public class PostListFragment extends Fragment {
         }
 
         public String getImageUrl() {
-            return imageUrl; // добавлено для использования, если нужно
+            return imageUrl;
         }
     }
 }

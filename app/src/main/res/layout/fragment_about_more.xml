@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="24dp"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/title_about_more_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="40dp"
+            tools:text="Заголовок"
+            android:textColor="@color/gold"
+            style="@style/customtext"
+            android:layout_marginBottom="8dp" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@drawable/orange_line"/>
+        <TextView
+            android:id="@+id/description_about_more_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Что-то интересное"
+            style="@style/customtext"
+            android:textColor="@color/gold"
+            android:textSize="24dp"
+            android:layout_margin="10dp" />
+    </LinearLayout>
+
+</ScrollView>
